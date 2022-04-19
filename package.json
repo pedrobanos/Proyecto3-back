@@ -1,5 +1,5 @@
 {
-  "name": "Proyecto3-back",
+  "name": "proyecto3-back",
   "version": "1.0.0",
   "description": "",
   "dependencies": {
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "nodemon ./app.js",
-    "dev": "DEBUG=onlyhacks:* nodemon ./app.js"
+    "dev": "DEBUG=proyecto3-back:* nodemon ./app.js"
   },
   "author": "",
   "license": "ISC"
