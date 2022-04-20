@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 const SALT_ROUNDS = 10
 const EMAIL_PATTERN =
     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-const CIF_PATTERN = 
+const CIF_PATTERN =
     /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/;
 
 const garageSchema = new mongoose.Schema(
@@ -23,6 +23,10 @@ const garageSchema = new mongoose.Schema(
             trim: true,
             uppercase: true,
             match: [CIF_PATTERN, 'CIF has to be valid']
+        },
+        name: {
+            type: String,
+            required: [true, 'Name is required']
         },
         password: {
             type: String,
