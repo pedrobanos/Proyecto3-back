@@ -55,18 +55,18 @@ const garageSchema = new mongoose.Schema(
                 required: [true, "Please enter a country."]
             },
             zipCode: {
-                type: Number,
+                type: String,
                 required: [true, "Please enter a zipcode."],
                 match: [ZIPCODE_REGEX, 'Invalid zipcode']
             },
         },
         phoneNumber: {
-            type: Number,
+            type: String,
             required: [true, "Please enter a phone number"],
             match: [PHONE_REGEX, 'Invalid phone number']
         },
         faxNumber: {
-            type: Number,
+            type: String,
             match: [FAX_REGEX, 'Invalid fax number']
         },
         contactName: {
