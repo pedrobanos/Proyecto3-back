@@ -6,9 +6,9 @@ const EMAIL_REGEX =
     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const CIF_REGEX =
     /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/;
-const PHONE_REGEX = /^\+?(6\d{2}|7[1-9]\d{1})\d{6}$/;
+const PHONE_REGEX = /^\+?([6-9]\d{2}|7[1-9]\d{1})\d{6}$/;
 const ZIPCODE_REGEX = /^\d{5}(?:[- ]?\d{4})?$/;
-const FAX_REGEX= /^(\+)?(((((\d+)|(\(\d+\))|(\(\d+\s(\d)\)))(\s|-|\d+))+)|((\d+)|(\(\d+\))$)+)+\d$/;
+
 
 const garageSchema = new mongoose.Schema(
     {
@@ -67,7 +67,6 @@ const garageSchema = new mongoose.Schema(
         },
         faxNumber: {
             type: String,
-            match: [FAX_REGEX, 'Invalid fax number']
         },
         contactName: {
             type: String
