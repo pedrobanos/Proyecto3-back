@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
 
 /* Auth */
 
-router.post('/login', authController.login)
+router.post('/login', authMiddleware.isNotAuthenticated, authController.login)
 
 /* Garages */
 

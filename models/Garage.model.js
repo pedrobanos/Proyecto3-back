@@ -22,6 +22,7 @@ const garageSchema = new mongoose.Schema(
         },
         cif: {
             type: String,
+            unique: true,
             required: [true, 'CIF is required'],
             trim: true,
             uppercase: true,
@@ -50,18 +51,18 @@ const garageSchema = new mongoose.Schema(
                 required: [true, "Please enter a city."]
             },
             zipCode: {
-                type: String,
+                type: Number,
                 required: [true, "Please enter a zipcode."],
                 match: [ZIPCODE_REGEX, 'Invalid zipcode']
             },
         },
         phoneNumber: {
-            type: String,
+            type: Number,
             required: [true, "Please enter a phone number"],
             match: [PHONE_REGEX, 'Invalid phone number']
         },
         faxNumber: {
-            type: String,
+            type: Number,
             match: [FAX_REGEX, 'Invalid fax number']
         },
         contactName: {
