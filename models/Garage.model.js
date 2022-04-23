@@ -50,6 +50,10 @@ const garageSchema = new mongoose.Schema(
                 type: String,
                 required: [true, "Please enter a city."]
             },
+            country: {
+                type: String,
+                required: [true, "Please enter a country."]
+            },
             zipCode: {
                 type: Number,
                 required: [true, "Please enter a zipcode."],
