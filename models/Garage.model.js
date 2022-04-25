@@ -5,7 +5,7 @@ const SALT_ROUNDS = 10
 const EMAIL_REGEX =
     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const CIF_REGEX =
-    /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/;
+    /^([ABCDEFGHJKLMNPQRSUVWabcdefghjklmnpqrsuvw])(\d{7})([0-9A-J])$/;
 const PHONE_REGEX = /^\+?([6-9]\d{2}|7[1-9]\d{1})\d{6}$/;
 const ZIPCODE_REGEX = /^\d{5}(?:[- ]?\d{4})?$/;
 
