@@ -12,36 +12,41 @@ const ORSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Vehicle'
     },
+    entryKms: {
+        type: Number,
+        required: [true, "must need car's kms "]
+    },
     damageFotos: {
         type: String,
         default: "https://desguaceslacabaña.com/blog/wp-content/uploads/2019/02/vehiculo-siniestro-total-desguace-2.png"
     },
     descriptionProblem: {
         type: String,
-        required: [true, "Introduzca el lugar"]
+        required: [true, "We need to know the problem, please provide it "]
     },
     operation: {
         type: String,
-        required: [true, "Introduzca la ubicación"]
+        required: [true, "Please provide solution to fix the car"]
     },
-    price: {
-        netPrice: {
-            type: Number,
-            required: [true, "Introduzca un valor numerico"]
-        },
-        discount: {
-            type: Number,
-            required: [true,  "Introduzca un valor numerico"]
-        },
-        vat: {
-            type: Number,
-            required: [true,  "Introduzca un valor numerico"]
-        },
-        total: {
-            type: Number,
-            required: [true,  "Introduzca un valor numerico"]
-        }
+    qty: {
+        type: Number,
+        required: [true, "need a quantity"]
     },
+    netPrice: {
+        type: Number,
+        required: [true, "need a value"]
+    },
+    discount: {
+        type: Number,
+    },
+    vat: {
+        type: Number,
+        default: 0.21
+    },
+    total: {
+        type: Number,
+        required: [true, "need a value"]
+    }
 }, {
     timestamps: true,
     toJSON: {
