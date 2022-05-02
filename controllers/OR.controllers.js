@@ -3,7 +3,7 @@ const OR = require('../models/OR.model')
 
 module.exports.list = (req, res, next) => {
     OR.find()
-        .populate('CarOwner', 'Vehicle')
+        .populate('vehicle')
         .then(ors => {
             if (!ors) {
                 res.status(200).json([])

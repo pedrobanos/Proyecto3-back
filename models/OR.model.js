@@ -4,10 +4,11 @@ const Schema = mongoose.Schema;
 
 const ORSchema = new Schema({
 
-    carOwner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'CarOwner'
-    },
+    // carOwner: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'CarOwner'
+    // },
+    
     vehicle: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Vehicle'

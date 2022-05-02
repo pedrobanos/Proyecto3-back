@@ -3,6 +3,7 @@ const Vehicle = require('../models/Vehicle.model')
 
 module.exports.list = (req, res, next) => {
     Vehicle.find()
+        .populate('carOwner')
         .then(vehicles => {
             if (!vehicles) {
                 res.status(200).json([])

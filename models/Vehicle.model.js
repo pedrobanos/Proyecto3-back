@@ -8,7 +8,7 @@ const vehicleSchema = new mongoose.Schema(
             required: [true, 'plate is required']
         },
 
-        VIN: {
+        vin: {
             type: String,
             required: [true, 'VIN is required']
         },
@@ -25,17 +25,16 @@ const vehicleSchema = new mongoose.Schema(
         year: {
             type: Number,
         },
-        price: {
-            type: Number,
-        },
-        horsepower: {
-            type: Number,
-        },
-        image: {
-            type: String,
-            default: "https://www.diariomotor.com/imagenes/picscache/1920x1600c/bugatti-veyron-ficha-1017-193_1920x1600c.jpg"
-          },
 
+        vehicleInsurance: {
+            type: String,
+         },
+
+         carOwner: {
+           type: mongoose.Schema.Types.ObjectId,
+           ref: 'CarOwner'
+       }
+       
     },{
         timestamps: true,
         toJSON: {
