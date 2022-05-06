@@ -8,7 +8,7 @@ const ORSchema = new Schema({
     //     type: mongoose.Schema.Types.ObjectId,
     //     ref: 'CarOwner'
     // },
-    
+
     vehicle: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Vehicle'
@@ -23,30 +23,24 @@ const ORSchema = new Schema({
     },
     descriptionProblem: {
         type: String,
-        required: [true, "We need to know the problem, please provide it "]
+        required: [true, "We need to know the problem, please provide it "],
+        minlength: [16]
     },
     operation: {
         type: String,
-        required: [true, "Please provide solution to fix the car"]
+        required: [true, "Please provide solution to fix the car"],
+        minlength: [8]
     },
     qty: {
         type: Number,
         required: [true, "need a quantity"]
     },
-    netPrice: {
+    price: {
         type: Number,
         required: [true, "need a value"]
     },
     discount: {
         type: Number,
-    },
-    vat: {
-        type: Number,
-        default: 0.21
-    },
-    total: {
-        type: Number,
-        required: [true, "need a value"]
     }
 }, {
     timestamps: true,

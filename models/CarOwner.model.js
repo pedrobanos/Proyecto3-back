@@ -56,8 +56,11 @@ const carOwnerSchema = new mongoose.Schema(
             type: String,
             required: [true, "Please enter a phone number"],
             match: [PHONE_REGEX, 'Invalid phone number']
-        }
-
+        },
+        // vehicle: {
+        //     type: mongoose.Schema.Types.ObjectId,
+        //     ref: 'Vehicle'
+        // }
     },
     {
         timestamps: true,
