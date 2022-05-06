@@ -5,6 +5,7 @@ const vehicleSchema = new mongoose.Schema(
     {
         plate: {
             type: String,
+            unique: true,
             required: [true, 'plate is required']
         },
 

@@ -5,7 +5,7 @@ const authMiddleware = require('../middlewares/auth.middleware')
 const garagesController = require('../controllers/garages.controller')
 const authController = require('../controllers/auth.controller')
 const ORController = require('../controllers/OR.controllers')
-const vehiclesController = require('../controllers/vehicles.controlle')
+const vehiclesController = require('../controllers/vehicles.controller')
 const carOwnersController = require('../controllers/carOwners.controller')
 
 

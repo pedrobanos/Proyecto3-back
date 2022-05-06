@@ -2,7 +2,15 @@ const CarOwner = require('../models/CarOwner.model')
 
 
 module.exports.list = (req, res, next) => {
-    CarOwner.find()
+    const { nifOrNie } = req.query
+
+    const query = {}
+
+    if (nifOrNie) {
+        query.nifOrNie = nifOrNie
+    }
+    CarOwner.find(query)
+    //.populate('carOwner')
         .then(carOwners => {
             if (!carOwners) {
                 res.status(200).json([])
@@ -15,10 +23,18 @@ module.exports.list = (req, res, next) => {
 
 module.exports.create = (req, res, next) => {
     const carOwner = req.body
-    CarOwner.create(carOwner)
-        .then(carOwner => res.status(200).json(carOwner))
+    CarOwner.findOne({ nifOrNie: req.body.nifOrNie })
+        .then(bbddCarOwner => {
+            if (bbddCarOwner) {
+                next(createError(404, { errors: { nifOrNie: 'Nif has been already registered' } }))
+            } else {
+                CarOwner.create(carOwner)
+                    .then(carOwner => res.status(200).json(carOwner))
+            }
+        })
         .catch(next)
 }
+
 
 module.exports.detail = (req, res, next) => {
     CarOwner.findById(req.params.id)

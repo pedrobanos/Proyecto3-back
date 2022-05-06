@@ -1,8 +1,19 @@
 const Vehicle = require('../models/Vehicle.model')
+const createError = require('http-errors')
+// const makes = Object.keys(require('../vehicleData/makes.json'))
+// const models = Object.keys(require('../vehicleData/models.json'))
 
 
 module.exports.list = (req, res, next) => {
-    Vehicle.find()
+    const { plate } = req.query
+
+    const query = {}
+
+    if (plate) {
+        query.plate = plate
+    }
+
+    Vehicle.find(query)
         .populate('carOwner')
         .then(vehicles => {
             if (!vehicles) {
@@ -16,10 +27,19 @@ module.exports.list = (req, res, next) => {
 
 module.exports.create = (req, res, next) => {
     const vehicle = req.body
-    Vehicle.create(vehicle)
-        .then(vehicle => res.status(200).json(vehicle))
+    Vehicle.findOne({ plate: req.body.plate })
+        .then(bbddVehicle => {
+            console.log(bbddVehicle);
+            if (bbddVehicle) {
+                next(createError(404, { errors: { plate: 'Plate has been already registered' } }))
+            } else {
+                return Vehicle.create(vehicle)
+                    .then(vehicle => res.status(200).json(vehicle))
+                }
+            })
         .catch(next)
 }
+
 
 module.exports.detail = (req, res, next) => {
     Vehicle.findById(req.params.id)
