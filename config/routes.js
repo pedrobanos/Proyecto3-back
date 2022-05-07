@@ -37,6 +37,7 @@ router.post('/vehicles/new',vehiclesController.create)
 router.get('/vehicles/:id',vehiclesController.detail)
 router.patch('/vehicles/:id',vehiclesController.update)
 router.delete('/vehicles/:id',vehiclesController.delete)
+router.post('/vehicles/search/:id',vehiclesController.search)
 
 /* Car Owners */
 
@@ -45,6 +46,8 @@ router.post('/carowners/new',carOwnersController.create)
 router.get('/carowners/:id',carOwnersController.detail)
 router.patch('/carowners/:id',carOwnersController.update)
 router.delete('/carowners/:id',carOwnersController.delete)
+router.post('/carowners/search/:id',carOwnersController.search)
+
 
 
 

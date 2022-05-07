@@ -62,3 +62,9 @@ module.exports.delete = (req, res, next) => {
         .then(vehicle => res.status(202).json(vehicle))
         .catch(next)
 }
+
+module.exports.search = (req, res, next) => {
+    Vehicle.findOne({ plate: req.params.id })
+    .then(vehicle => res.status(200).json(vehicle))
+    .catch(next)
+}

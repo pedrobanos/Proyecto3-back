@@ -57,3 +57,11 @@ module.exports.delete = (req, res, next) => {
         .then(carOwner => res.status(202).json(carOwner))
         .catch(next)
 }
+module.exports.search = (req, res, next) => {
+    CarOwner.findOne({ nifOrNie: req.params.id })
+    .then(carOwner => {
+        console.log(carOwner)
+        res.status(200).json(carOwner)
+    })
+    .catch(e => console.log(e))
+}
