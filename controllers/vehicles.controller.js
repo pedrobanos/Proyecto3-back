@@ -28,8 +28,7 @@ module.exports.list = (req, res, next) => {
 module.exports.create = (req, res, next) => {
     const vehicle = req.body
     Vehicle.findOne({ plate: req.body.plate })
-        .then(bbddVehicle => {
-            console.log(bbddVehicle);
+        .then((bbddVehicle) => {
             if (bbddVehicle) {
                 next(createError(404, { errors: { plate: 'Plate has been already registered' } }))
             } else {
@@ -58,7 +57,7 @@ module.exports.update = (req, res, next) => {
 }
 
 module.exports.delete = (req, res, next) => {
-    CarOwner.findByIdAndDelete(req.params.id)
+    Vehicle.findByIdAndDelete(req.params.id)
         .then(vehicle => res.status(202).json(vehicle))
         .catch(next)
 }

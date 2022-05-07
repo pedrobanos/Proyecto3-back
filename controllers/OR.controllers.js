@@ -17,15 +17,26 @@ module.exports.list = (req, res, next) => {
 }
 
 module.exports.create = (req, res, next) => {
+    console.log(req.body)
     const or = req.body
-    console.log(or)
+
+    if (req.files) {
+        or.damageFotos = req.files.map(file => file.path)
+      }
+
     OR.create(or)
         .then(or => res.status(200).json(or))
-        .catch(next)
+        .catch(e => console.log(e))
 }
 
 module.exports.detail = (req, res, next) => {
     OR.findById(req.params.id)
+        .populate({
+            path: 'vehicle',
+            populate: {
+                path: 'carOwner'
+            }
+        })
         .then(or => res.status(200).json(or))
         .catch(next)
 }

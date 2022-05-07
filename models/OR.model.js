@@ -4,10 +4,6 @@ const Schema = mongoose.Schema;
 
 const ORSchema = new Schema({
 
-    // carOwner: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'CarOwner'
-    // },
 
     vehicle: {
         type: mongoose.Schema.Types.ObjectId,
@@ -18,18 +14,17 @@ const ORSchema = new Schema({
         required: [true, "must need car's kms "]
     },
     damageFotos: {
-        type: String,
+        type: [String],
         default: "https://desguaceslacabaña.com/blog/wp-content/uploads/2019/02/vehiculo-siniestro-total-desguace-2.png"
     },
     descriptionProblem: {
         type: String,
         required: [true, "We need to know the problem, please provide it "],
-        minlength: [16]
+        minlength: [10]
     },
     operation: {
-        type: String,
-        required: [true, "Please provide solution to fix the car"],
-        minlength: [8]
+        type: [String],
+        required: [true, "Please provide solution to fix the car"]
     },
     qty: {
         type: Number,
