@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const upload = require('./storage.config');
 
 const authMiddleware = require('../middlewares/auth.middleware')
 const garagesController = require('../controllers/garages.controller')
@@ -25,7 +26,7 @@ router.get('/mainmenu', garagesController.getGarageById)
 
 /* OR */
 router.get('/ors',ORController.list)
-router.post('/ors/new',ORController.create)
+router.post('/ors/new', upload.array('damageFotos[]', 4),ORController.create)
 router.get('/ors/:id',ORController.detail)
 router.patch('/ors/:id',ORController.update)
 router.delete('/ors/:id',ORController.delete)

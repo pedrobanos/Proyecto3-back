@@ -34,7 +34,7 @@ app.use((error, req, res, next) => {
     console.log(error)
   } else if (error instanceof mongoose.Error.CastError) {
     error = createError(404, "Resource not found");
-  } else if (error.message.includes("E11000")) {
+  } else if (error.message && error.message.includes("E11000")) {
     error = createError(400, "Already exists");
   } else if (error instanceof jwt.JsonWebTokenError) {
     error = createError(401, error);
