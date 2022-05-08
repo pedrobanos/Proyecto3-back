@@ -50,7 +50,7 @@ module.exports.update = (req, res, next) => {
     console.log(req.params.id)
     Vehicle.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then(vehicle => {
-            console.log(or, req.body)
+            console.log(vehicle, req.body)
             res.status(200).json(vehicle)
         })
         .catch(next)

@@ -36,7 +36,7 @@ router.delete('/ors/:id',ORController.delete)
 router.get('/vehicles',vehiclesController.list)
 router.post('/vehicles/new',vehiclesController.create)
 router.get('/vehicles/:id',vehiclesController.detail)
-router.patch('/vehicles/:id',vehiclesController.update)
+router.put('/vehicles/:id',vehiclesController.update)
 router.delete('/vehicles/:id',vehiclesController.delete)
 router.post('/vehicles/search/:id',vehiclesController.search)
 
