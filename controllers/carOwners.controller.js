@@ -23,10 +23,10 @@ module.exports.list = (req, res, next) => {
 
 module.exports.create = (req, res, next) => {
     const carOwner = req.body
-    CarOwner.findOne({ nifOrNie: req.body.nifOrNie })
+    CarOwner.findOne({ nifOrNie: req.body.nifOrNie, email:req.body.email })
         .then(bbddCarOwner => {
             if (bbddCarOwner) {
-                next(createError(404, { errors: { nifOrNie: 'Nif has been already registered' } }))
+                next(createError(404, { errors: { nifOrNie: 'NIF has been already registered' , email:'email has been already registered'} }))
             } else {
                 CarOwner.create(carOwner)
                     .then(carOwner => res.status(200).json(carOwner))

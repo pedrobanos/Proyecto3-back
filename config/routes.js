@@ -45,7 +45,7 @@ router.post('/vehicles/search/:id',vehiclesController.search)
 router.get('/carowners',carOwnersController.list)
 router.post('/carowners/new',carOwnersController.create)
 router.get('/carowners/:id',carOwnersController.detail)
-router.patch('/carowners/:id',carOwnersController.update)
+router.put('/carowners/:id',carOwnersController.update)
 router.delete('/carowners/:id',carOwnersController.delete)
 router.post('/carowners/search/:id',carOwnersController.search)
 
