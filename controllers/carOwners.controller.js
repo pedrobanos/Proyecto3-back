@@ -46,7 +46,7 @@ module.exports.update = (req, res, next) => {
     console.log(req.params.id)
     CarOwner.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then(carOwner => {
-            console.log(or, req.body)
+            console.log(carOwner, req.body)
             res.status(200).json(carOwner)
         })
         .catch(next)
