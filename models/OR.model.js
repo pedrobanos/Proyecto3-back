@@ -19,8 +19,7 @@ const ORSchema = new Schema({
     },
     descriptionProblem: {
         type: String,
-        required: [true, "We need to know the problem, please provide it "],
-        minlength: [10]
+        required: [true, "We need to know the problem, please provide it "]
     },
     operation: {
         type: [String],
