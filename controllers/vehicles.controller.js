@@ -47,7 +47,6 @@ module.exports.detail = (req, res, next) => {
 }
 
 module.exports.update = (req, res, next) => {
-    console.log(req.params.id)
     Vehicle.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then(vehicle => {
             console.log(vehicle, req.body)
@@ -64,6 +63,7 @@ module.exports.delete = (req, res, next) => {
 
 module.exports.search = (req, res, next) => {
     Vehicle.findOne({ plate: req.params.id })
+    .populate('carOwner')
     .then(vehicle => res.status(200).json(vehicle))
     .catch(next)
 }

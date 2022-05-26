@@ -17,7 +17,6 @@ module.exports.list = (req, res, next) => {
 }
 
 module.exports.create = (req, res, next) => {
-    console.log(req.body)
     const or = req.body
 
     if (req.files) {
