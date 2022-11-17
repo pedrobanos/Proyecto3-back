@@ -3,7 +3,7 @@ const Garage = require('../models/Garage.model')
 
 module.exports.getGarageById = (req, res, next) => {
   Garage.findById(req.params.id)
-  .then(garage => {
+    .then(garage => {
       if (!garage) {
         // not found
         next(createError(404, 'Garage not found'))
@@ -14,14 +14,23 @@ module.exports.getGarageById = (req, res, next) => {
     .catch(next)
 }
 module.exports.getCurrentGarage = (req, res, next) => {
-    Garage.findById(req.currentGarage)
-      .then(garage => {
-        if (!garage) {
-          // not found
-          next(createError(404, 'Garage not found'))
-        } else {
-          res.status(200).json(garage)
-        }
-      })
-      .catch(next)
-  }
+  Garage.findById(req.currentGarage)
+    // .populate({
+    //   path: 'or',
+    //   populate: {
+    //     path: 'vehicle',
+    //     populate: {
+    //       path: 'carOwner'
+    //     }
+    //   }
+    // })
+    .then(garage => {
+      if (!garage) {
+        // not found
+        next(createError(404, 'Garage not found'))
+      } else {
+        res.status(200).json(garage)
+      }
+    })
+    .catch(next)
+}
