@@ -22,7 +22,7 @@ router.post('/login', authMiddleware.isNotAuthenticated, authController.login)
 
 router.post('/garages', authController.create)
 router.get('/garages/me', authMiddleware.isAuthenticated, garagesController.getCurrentGarage)
-router.get('/mainmenu', garagesController.getGarageById)
+router.get('/home', garagesController.getGarageById)
 
 /* OR */
 router.get('/ors',ORController.list)
